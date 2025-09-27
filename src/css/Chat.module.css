@@ -1,0 +1,38 @@
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+#users{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.user{
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: red;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#chat{
+    height: 400px;
+    width: 220px;
+    background-image: url("/images/smartphone.png");
+    background-size: cover;
+}
