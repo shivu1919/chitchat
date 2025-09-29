@@ -32,7 +32,44 @@
 
 #chat{
     height: 400px;
-    width: 220px;
+    width: 230px;
     background-image: url("/images/smartphone.png");
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+    padding: 10px;
+    position: relative;
+}
+
+#friend{
+    position: absolute;
+    top:45px;
+    left:20px;
+    font-weight: 900;
+    font-family: sans-serif;
+}
+
+#sender{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+}
+
+#sender>input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+#msgs{
+    position: absolute;
+    top:80px;
+    left:20px;
 }
