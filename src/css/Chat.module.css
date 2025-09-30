@@ -69,7 +69,9 @@
 }
 
 #msgs{
+    overflow-y: scroll;
     position: absolute;
     top:80px;
     left:20px;
+    height: 300px;
 }

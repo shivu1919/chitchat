@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import chatStyle from "../css/Chat.module.css"
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 
 function Chat(props) {
+  console.log("Component is re-rendered")
 
   const [email, setEmail] = useState(props.useremail)
 
@@ -10,6 +12,7 @@ function Chat(props) {
   const [friend, setFriend] = useState('')
 
   const [msgs, setMsgs] = useState([])
+  const[test, setTest] = useState(0)
 
   const [sender, setSender] = useState(props.useremail)
   const [receiver, setReceiver] = useState('')
@@ -26,13 +29,12 @@ function Chat(props) {
   useEffect(()=>{
     axios.post(`http://localhost:8080/check-msg?sender=${sender}&receiver=${receiver}`)
     .then((res)=>{
-      console.log("new data fetched")
       setMsgs(res.data)
     })
-  }, [receiver, message])
-
+  }, [receiver,test])
 
   function sendMessage() {
+    setTest(test+1)
     axios.post(`http://localhost:8080/send-msg?sender=${sender}&receiver=${receiver}&msg=${message}&time=${new Date().getHours() + " : " + new Date().getMinutes()}`)
     setMessage('')
   }
@@ -61,9 +63,11 @@ function Chat(props) {
             <hr />
           </div>
 
-          <div id={chatStyle.msgs}>
+          <div id={chatStyle.msgs} style={{width:"83%"}}>
             {msgs.map((item, index) => <div key={index}>
-              <p>{item.msg}</p>
+              
+              <p style={(item.sender==sender)?{textAlign:"right"}:{}}>{item.msg}</p>
+              
             </div>)}
           </div>
 
